@@ -7,7 +7,7 @@ public class ApiRESTOperations extends ApiRestClient {
         super.headers.put(AUTH_NAME, AUTH_TYPE + ' ' + EncodingUtil.base64Encode(Blob.valueOf(API_USERNAME + ':' + API_KEY)));
     }
 
-    public HttpResponse getPhotos(){
+    public void getPhotos(){
         super.method = 'GET';
         super.resource = '/photos';
         super.headers = headers;
