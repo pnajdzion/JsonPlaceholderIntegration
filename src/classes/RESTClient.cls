@@ -9,6 +9,8 @@ public class RESTClient implements Queueable, Database.AllowsCallouts{
     protected String method;
     protected String resource;
     protected String jsonBody;
+
+    protected ApiRestResponseHandler responseHandler;
     
     protected Map<String, String> headers = new Map<String, String> {
         'Accept' => 'application/json',
@@ -28,8 +30,7 @@ public class RESTClient implements Queueable, Database.AllowsCallouts{
         HttpRequest req = RESTRequestBuilder.buildJSONRequest(API_ADDRESS + resource, method, headers, jsonBody);
 	    Http http = new Http();
 	    HTTPResponse res = http.send(req);
-        RESTResponseHandler handler = new RESTResponseHandler();
-        handler.setResponse(res);
+        responseHandler.setResponse(res).handleResponse();
     }
 
     public HttpResponse executeSync(){
