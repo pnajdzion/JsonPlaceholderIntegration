@@ -1,8 +1,6 @@
-public class ApiRESTOperations extends ApiRestClient {
+public class RESTOperations extends RESTClient {
 
-    private static final String API_NAME = 'JSON_Placeholder';
-
-    public ApiRESTOperations(){
+    public RESTOperations(String API_NAME){
         super(API_NAME);
         super.headers.put(AUTH_NAME, AUTH_TYPE + ' ' + EncodingUtil.base64Encode(Blob.valueOf(API_USERNAME + ':' + API_KEY)));
     }
@@ -12,7 +10,8 @@ public class ApiRESTOperations extends ApiRestClient {
         super.resource = '/photos';
         super.headers = headers;
         super.jsonBody = '{}';
-        
+        super.responseHandler = new RESTResponseHandler.GetPhotosResponseHandler();
+
         System.enqueueJob(this);
     }
 }
