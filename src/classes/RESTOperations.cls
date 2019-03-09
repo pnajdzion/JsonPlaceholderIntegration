@@ -12,6 +12,7 @@ public class ApiRESTOperations extends ApiRestClient {
         super.resource = '/photos';
         super.headers = headers;
         super.jsonBody = '{}';
-        return executeSync();
+        
+        System.enqueueJob(this);
     }
 }
