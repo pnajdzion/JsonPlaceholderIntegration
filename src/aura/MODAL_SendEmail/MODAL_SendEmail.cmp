@@ -1,0 +1,16 @@
+<aura:component>
+    <lightning:overlayLibrary aura:id="overlayLib" />
+
+    <aura:attribute name="records" type="Object[]" />
+    <aura:attribute name="email" type="String" />
+
+    <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-5">
+                <lightning:input type="email" value="{!v.email}" label="Email" />
+            </div>
+            <div class="slds-col slds-p-top_large">
+                <lightning:button class="slds-button slds-button_brand slds-col_bump-left" label="Send" onclick="{!c.handleSendClick}" />
+            </div>
+        </div>
+
+</aura:component>
