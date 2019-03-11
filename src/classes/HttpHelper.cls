@@ -7,10 +7,6 @@ public class HttpHelper {
 
     public static void handleResponseStatusCode(Integer statusCode) {
        
-       if(!SUCCESS_STATUS_CODES.contains(statusCode)){
-           Developer.saveLogs(true);
-       }
-       
        if (isResponseBadRequest(statusCode)) {
             throw new HttpException('400', 'API responded with a 400 : Bad Request');
        } else if (isResponseAccountExpiredFound(statusCode)) {
