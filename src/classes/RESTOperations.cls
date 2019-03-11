@@ -2,7 +2,7 @@ public class RESTOperations extends RESTClient {
 
     public RESTOperations(String API_NAME){
         super(API_NAME);
-        super.headers.put(AUTH_NAME, AUTH_TYPE + ' ' + EncodingUtil.base64Encode(Blob.valueOf(API_USERNAME + ':' + API_KEY)));
+        //super.headers.put(AUTH_NAME, AUTH_TYPE + ' ' + EncodingUtil.base64Encode(Blob.valueOf(API_USERNAME + ':' + API_KEY)));
     }
 
     public void getPhotos(){
