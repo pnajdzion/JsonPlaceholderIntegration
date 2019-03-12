@@ -53,6 +53,5 @@
                                }
                             }
         );
-        //$A.get("e.force:closeQuickAction").fire();
     }
 })
