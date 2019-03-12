@@ -4,6 +4,6 @@ global class JSONPlaceholderSynchronizator implements Schedulable {
 
 	global void execute(SchedulableContext ctx) {
 		RESTOperations restOperations = new RESTOperations(API_NAME);
-        restOperations.getPhotos();
+        	restOperations.getPhotos();
 	}
 }
