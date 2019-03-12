@@ -6,7 +6,7 @@ public virtual class RESTResponseHandler{
 
     public RESTResponseHandler setResponse(HTTPResponse response){
         this.response = response;
-        // handle response codes HttpHelper.handleResponseStatusCode(response.getStatusCode());
+        HttpHelper.handleResponseStatusCode(response.getStatusCode());
         return this;
     }
 
