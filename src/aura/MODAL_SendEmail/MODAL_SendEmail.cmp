@@ -1,11 +1,11 @@
-<aura:component>
+<aura:component controller="MODAL_SendEmailController">
     <lightning:overlayLibrary aura:id="overlayLib" />
 
     <aura:attribute name="records" type="Object[]" />
     <aura:attribute name="email" type="String" />
 
     <div class="slds-grid slds-gutters">
-            <div class="slds-col slds-size_1-of-5">
+            <div class="slds-col slds-size_1-of-3">
                 <lightning:input type="email" value="{!v.email}" label="Email" />
             </div>
             <div class="slds-col slds-p-top_large">
