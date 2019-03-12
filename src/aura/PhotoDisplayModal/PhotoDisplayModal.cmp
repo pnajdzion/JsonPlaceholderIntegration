@@ -1,0 +1,59 @@
+<aura:component controller="PhotoDisplayModalController" implements="force:appHostable,force:lightningQuickActionWithoutHeader,flexipage:availableForRecordHome"
+    access="global">
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    
+    <aura:attribute name="records" type="Object[]" />
+    <aura:attribute name="titleFilter" type="String" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="this" action="{!c.doInit}" />
+
+    <div class="slds-box slds-theme_default">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-5">
+                <lightning:input type="String" value="{!v.titleFilter}" label="Title filter" />
+            </div>
+            <div class="slds-col slds-p-top_large">
+                <lightning:button class="slds-button slds-button_neutral slds-col_bump-left" label="Apply filter" onclick="{!c.handleApplyFilterClick}" />
+            </div>
+            <div class="slds-col slds-p-top_large">
+                <lightning:button class="slds-button slds-button_neutral slds-col_bump-right" label="Send list to email" onclick="{!c.handleSendEmailClick}" />
+            </div>
+        </div>
+
+        <div class="slds-modal__content slds-p-around_x-small" style="max-height : 400px; overflow-y:scroll;">
+            <table class="slds-table slds-table_bordered slds-table_col-bordered">
+                <thead>
+                    <tr>
+                        <th class="slds-border_left">
+                            <div class="slds-size_1-of-5 slds-wrap"> Title </div>
+                        </th>
+                        <th>
+                            <div class="slds-size_1-of-5 slds-wrap"> Album Id </div>
+                        </th>
+                        <th>
+                            <div class="slds-size_1-of-5 slds-wrap"> External Id </div>
+                        </th>
+                        <th>
+                            <div class="slds-size_1-of-5 slds-wrap"> Url </div>
+                        </th>
+                        <th class="slds-border_right">
+                            <div class="slds-size_1-of-5 slds-wrap"> Thumbnail Url </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.records}" var="photo">
+                        <c:PhotoDisplayModalLineItem record="{!photo}" />
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <div id="spinner" class="slds">
+            <lightning:spinner aura:id="spinner" class="slds-is-fixed" alternativeText="Loading..." />
+        </div>
+    </aura:if>
+</aura:component>

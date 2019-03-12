@@ -1,0 +1,11 @@
+<aura:component>
+    <aura:attribute name="record" type="Object" />
+
+    <tr>
+        <td class="slds-size_1-of-5"> {!v.record.Title__c} </td>
+        <td class="slds-size_1-of-5"> {!v.record.Album_Id__c} </td>
+        <td class="slds-size_1-of-5"> {!v.record.External_Id__c} </td>
+        <td class="slds-size_1-of-5"> {!v.record.Url__c} </td>
+        <td class="slds-size_1-of-5 slds-border_right"> {!v.record.Thumbnail_Url__c} </td>
+    </tr>
+</aura:component>
